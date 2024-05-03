@@ -513,7 +513,7 @@ MODULE mms_module
 !
 !-----------------------------------------------------------------------
 
-    REAL(r_knd), DIMENSION(nx,ny,nz,ng), INTENT(IN) :: flux
+    REAL(r_knd), DIMENSION(4,1,1,1), INTENT(IN) :: flux
 !_______________________________________________________________________
 !
 !   Local variables
@@ -525,7 +525,7 @@ MODULE mms_module
 
     REAL(r_knd) :: dfmx, dfmn, dfsm
 
-    REAL(r_knd), DIMENSION(nx,ny,nz,ng) :: df
+    REAL(r_knd), DIMENSION(4,1,1,1) :: df
 !_______________________________________________________________________
 
     df = one
