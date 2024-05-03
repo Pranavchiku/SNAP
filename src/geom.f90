@@ -252,11 +252,11 @@ MODULE geom_module
 
     REAL(r_knd), INTENT(IN) :: vd
 
-    REAL(r_knd), DIMENSION(nang), INTENT(IN) :: mu, eta, xi
+    REAL(r_knd), DIMENSION(1), INTENT(IN) :: mu, eta, xi
 
-    REAL(r_knd), DIMENSION(nx,ny,nz), INTENT(IN) :: cs
+    REAL(r_knd), DIMENSION(4,1,1), INTENT(IN) :: cs
 
-    REAL(r_knd), DIMENSION(nang,ichunk,ny,nz,nc), INTENT(OUT) :: d
+    REAL(r_knd), DIMENSION(1,1,1,1,4), INTENT(OUT) :: d
 !_______________________________________________________________________
 !
 !   Local variables
