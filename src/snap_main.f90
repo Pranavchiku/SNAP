@@ -197,7 +197,7 @@ PROGRAM snap_main
 ! Call for the problem solution
 !_______________________________________________________________________
 
-  CALL translv ( ndpwds )
+  ! CALL translv ( ndpwds )
 !_______________________________________________________________________
 !
 ! Output the results. Print the timing summary.

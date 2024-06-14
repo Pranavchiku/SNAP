@@ -214,7 +214,7 @@ MODULE output_module
     REAL(r_knd), DIMENSION(nx,ny), INTENT(IN) :: fprnt
 !_______________________________________________________________________
 
-    CALL psend ( root, sproc, nx, ny, fprnt, comm_space, mtag )
+    ! CALL psend ( root, sproc, nx, ny, fprnt, comm_space, mtag )
 !_______________________________________________________________________
 !_______________________________________________________________________
 
@@ -234,7 +234,7 @@ MODULE output_module
     REAL(r_knd), DIMENSION(nx,ny), INTENT(INOUT) :: fprnt
 !_______________________________________________________________________
 
-    CALL precv ( proc, sproc, nx, ny, fprnt, comm_space, mtag )
+    ! CALL precv ( proc, sproc, nx, ny, fprnt, comm_space, mtag )
 !_______________________________________________________________________
 !_______________________________________________________________________
 

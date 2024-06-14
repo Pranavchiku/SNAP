@@ -628,8 +628,8 @@ MODULE input_module
 
     ilen = SIZE( ipak )
     dlen = SIZE( dpak )
-    CALL bcast ( ipak, ilen, comm_snap, root )
-    CALL bcast ( dpak, dlen, comm_snap, root )
+    ! CALL bcast ( ipak, ilen, comm_snap, root )
+    ! CALL bcast ( dpak, dlen, comm_snap, root )
 !_______________________________________________________________________
 !
 !   Unpack
