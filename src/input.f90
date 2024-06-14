@@ -56,10 +56,10 @@ MODULE input_module
 
     REAL(r_knd) :: t1, t2
 
-    NAMELIST / invar / npey, npez, ichunk, nthreads, ndimen, nx, ny,   &
-      nz, lx, ly, lz, nmom, nang, ng, epsi, iitm, oitm, timedep, tf,   &
-      nsteps, mat_opt, src_opt, scatp, swp_typ, multiswp, it_det,      &
-      fluxp, fixup, nnested, soloutp, kplane, popout, angcpy
+    ! NAMELIST / invar / npey, npez, ichunk, nthreads, ndimen, nx, ny,   &
+    !   nz, lx, ly, lz, nmom, nang, ng, epsi, iitm, oitm, timedep, tf,   &
+    !   nsteps, mat_opt, src_opt, scatp, swp_typ, multiswp, it_det,      &
+    !   fluxp, fixup, nnested, soloutp, kplane, popout, angcpy
 !_______________________________________________________________________
 !
 !   Read the input file. Echo to output file. Call for an input variable
