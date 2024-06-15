@@ -70,7 +70,7 @@ MODULE input_module
 
     ierr = 0
 
-    IF ( iproc == root ) READ( iunit, NML=invar, IOSTAT=ierr )
+    ! IF ( iproc == root ) READ( iunit, NML=invar, IOSTAT=ierr )
     CALL bcast ( ierr, comm_snap, root )
     IF ( ierr /= 0 ) THEN
       error = '***ERROR: READ_INPUT: Problem reading input file'

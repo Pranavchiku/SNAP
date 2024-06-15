@@ -26,7 +26,7 @@ MODULE setup_module
     last_oct, corner_sch, multiswp, yzstg, corner_loop_order, angcpy,  &
     control_allocate
 
-  USE mms_module, ONLY: mms_setup
+!   USE mms_module, ONLY: mms_setup
 
   USE utils_module, ONLY: print_error, stop_run, open_file, close_file
 
@@ -534,7 +534,7 @@ MODULE setup_module
 !_______________________________________________________________________
 
     IF ( src_opt == 3 ) THEN
-      CALL mms_setup ( ierr, error )
+      ! CALL mms_setup ( ierr, error )
       RETURN
     END IF
 !_______________________________________________________________________
@@ -789,8 +789,8 @@ MODULE setup_module
     DO j = 1, nmat
       WRITE( ounit, 150 ) j
       WRITE( ounit, 151 )
-      WRITE( ounit, 152 ) ( i, sigt(j,i), siga(j,i), sigs(j,i),        &
-                            i = 1, ng )
+      ! WRITE( ounit, 152 ) ( i, sigt(j,i), siga(j,i), sigs(j,i),        &
+      !                       i = 1, ng )
     END DO
 
     IF ( timedep == 1 ) THEN

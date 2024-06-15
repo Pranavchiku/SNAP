@@ -11,7 +11,7 @@ MODULE utils_module
 
   USE global_module, ONLY: i_knd, ifile, ofile
 
-  USE dealloc_module
+  ! USE dealloc_module
 
   USE plib_module, ONLY: iproc, root, pend, plock_omp, nthreads
 
@@ -217,9 +217,9 @@ MODULE utils_module
 
     IF ( flg1 > 0 ) CALL plock_omp ( 'destroy', nthreads )
 
-    IF ( flg2 > 0 ) CALL dealloc_input ( flg2 )
+    ! IF ( flg2 > 0 ) CALL dealloc_input ( flg2 )
 
-    IF ( flg3 > 0 ) CALL dealloc_solve ( swp_typ, flg3 )
+    ! IF ( flg3 > 0 ) CALL dealloc_solve ( swp_typ, flg3 )
 
     IF ( iproc == root ) THEN
       IF ( flg4 == 0 ) THEN

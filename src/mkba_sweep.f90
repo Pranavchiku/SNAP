@@ -160,25 +160,25 @@ MODULE mkba_sweep_module
 
       diagonal_loop: DO d = 1, ndiag
 
-  !$OMP PARALLEL DO NUM_THREADS(nnstd_used) IF(nnstd_used>1)           &
-  !$OMP& SCHEDULE(STATIC,1) PROC_BIND(CLOSE)  DEFAULT(SHARED)          &
-  !$OMP& PRIVATE(n,ic,i,j,k,l,psi,pc,hv,sum_hv,fxhv,sum_hv_n,den)
-        line_loop: DO n = 1, diag(d)%len
+!   !$OMP PARALLEL DO NUM_THREADS(nnstd_used) IF(nnstd_used>1)           &
+!   !$OMP& SCHEDULE(STATIC,1) PROC_BIND(CLOSE)  DEFAULT(SHARED)          &
+!   !$OMP& PRIVATE(n,ic,i,j,k,l,psi,pc,hv,sum_hv,fxhv,sum_hv_n,den)
+!         line_loop: DO n = 1, diag(d)%len
 !_______________________________________________________________________
 !
 !         Set the indices chunk indices and the global i index
 !_______________________________________________________________________
 
-          ic = diag(d)%cell_id(n)%ic
-          IF ( ist < 0 ) ic = ichunk - ic + 1
+!           ic = diag(d)%cell_id(n)%ic
+!           IF ( ist < 0 ) ic = ichunk - ic + 1
 
-          i = (ich-1)*ichunk + ic
+!           i = (ich-1)*ichunk + ic
 
-          j = diag(d)%cell_id(n)%j
-          IF ( jst < 0 ) j = ny - j + 1
+!           j = diag(d)%cell_id(n)%j
+!           IF ( jst < 0 ) j = ny - j + 1
 
-          k = diag(d)%cell_id(n)%k
-          IF ( kst < 0 ) k = nz - k + 1
+!           k = diag(d)%cell_id(n)%k
+!           IF ( kst < 0 ) k = nz - k + 1
 !_______________________________________________________________________
 !
 !         Dummy operation to match real transport code where nx is not
@@ -188,7 +188,7 @@ MODULE mkba_sweep_module
           IF ( i > nx ) THEN
             jb_out(:,ic,k) = zero
             kb_out(:,ic,j) = zero
-            CYCLE line_loop
+            ! CYCLE line_loop
           END IF
 !_______________________________________________________________________
 !
@@ -454,8 +454,8 @@ MODULE mkba_sweep_module
 !         Finish the loops
 !_______________________________________________________________________
 
-        END DO line_loop
-  !$OMP END PARALLEL DO
+!         END DO line_loop
+!   !$OMP END PARALLEL DO
 
       END DO diagonal_loop
 !_______________________________________________________________________

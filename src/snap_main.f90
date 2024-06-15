@@ -86,13 +86,13 @@ PROGRAM snap_main
 
   USE input_module, ONLY: input_read
 
-  USE setup_module, ONLY: setup
+  ! USE setup_module, ONLY: setup
 
-  USE output_module, ONLY: output
+  ! USE output_module, ONLY: output
 
   USE time_module, ONLY: tsnap, wtime, tparset, time_summ, tgrind
 
-  USE dealloc_module
+  ! USE dealloc_module
 
   USE plib_module, ONLY: pinit, iproc, root, comm_snap, bcast,         &
     pcomm_set, pinit_omp
@@ -191,7 +191,7 @@ PROGRAM snap_main
 ! Setup problem
 !_______________________________________________________________________
 
-  CALL setup ( ndpwds )
+!   CALL setup ( ndpwds )
 !_______________________________________________________________________
 !
 ! Call for the problem solution
@@ -203,15 +203,15 @@ PROGRAM snap_main
 ! Output the results. Print the timing summary.
 !_______________________________________________________________________
 
-  CALL output
+  ! CALL output
   IF ( iproc == root ) CALL time_summ
 !_______________________________________________________________________
 !
 ! Final cleanup: deallocate, close output file, end the program
 !_______________________________________________________________________
 
-  CALL dealloc_input ( 4 )
-  CALL dealloc_solve ( swp_typ, 2 )
+  ! CALL dealloc_input ( 4 )
+  ! CALL dealloc_solve ( swp_typ, 2 )
 
   CALL wtime ( t5 )
   tsnap = t5 - t1
