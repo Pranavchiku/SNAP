@@ -81,7 +81,9 @@ MODULE inner_module
     CALL wtime ( t1 )
 
     do_grp = 1
-    WHERE( inrdone ) do_grp = 0
+    ! WHERE( inrdone ) do_grp = 0
+    ! >>>> Workaround <<<<<
+    WHERE( inrdone .eqv. .TRUE. ) do_grp = 0
 
     CALL assign_thrd_set ( do_grp, ng, ng_per_thrd, ny*nz, nnstd_used, &
       grp_act )
@@ -132,8 +134,9 @@ MODULE inner_module
 !_______________________________________________________________________
 
     do_grp = 1
-    WHERE( inrdone ) do_grp = 0
-
+    ! WHERE( inrdone ) do_grp = 0
+    ! >>>> Workaround <<<<<
+    WHERE( inrdone .eqv. .TRUE. ) do_grp = 0
     CALL assign_thrd_set ( do_grp, ng, ng_per_thrd, 0, nnstd_used,     &
       grp_act )
 
