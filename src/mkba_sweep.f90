@@ -13,7 +13,7 @@ MODULE mkba_sweep_module
   USE plib_module, ONLY: ichunk, firsty, lasty, firstz, lastz,         &
     nnested
 
-  USE geom_module, ONLY: nx, hi, hj, hk, ndimen, ny, nz, ndiag, diag, nc
+  USE geom_module, ONLY: nx, hi, hj, hk, ndimen, ny, nz, ndiag, nc
 
   USE sn_module, ONLY: cmom, nang, mu, eta, xi, w, noct
 
