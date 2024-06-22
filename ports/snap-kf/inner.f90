@@ -293,7 +293,9 @@ MODULE inner_module
       iits(g) = inno
 
       df(:,:,:,n) = one
-      WHERE( ABS( flux0pi(:,:,:,g) ) < tolr )
+      ! WORKAROUND: `ABS( flux0pi(:,:,:,g) ) < tolr` changed to `flux0pi_abs < tolr`
+      real(r_knd), dimension(:, :, :, g) :: flux0pi_abs = ABS( flux0pi(:,:,:,g) )
+      WHERE( flux0pi_abs < tolr )
         flux0pi(:,:,:,g) = one
         df(:,:,:,n) = zero
       END WHERE

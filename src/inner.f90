@@ -82,6 +82,7 @@ MODULE inner_module
 
     do_grp = 1
     WHERE( inrdone ) do_grp = 0
+    WHERE( inrdone ) do_grp = 0
 
     CALL assign_thrd_set ( do_grp, ng, ng_per_thrd, ny*nz, nnstd_used, &
       grp_act )
@@ -133,7 +134,6 @@ MODULE inner_module
 
     do_grp = 1
     WHERE( inrdone ) do_grp = 0
-
     CALL assign_thrd_set ( do_grp, ng, ng_per_thrd, 0, nnstd_used,     &
       grp_act )
 
@@ -325,7 +325,9 @@ MODULE inner_module
     iits = inno
 
     df = one
-    WHERE( ABS( flux0pi ) < tolr )
+    ! WORKAROUND: `ABS( flux0pi ) < tolr` changed to `flux0pi_abs < tolr`
+    real(r_knd), dimension(nx, ny, nz) :: flux0pi_abs = ABS( flux0pi )
+    WHERE( flux0pi_abs < tolr )
       flux0pi = one
       df = zero
     END WHERE

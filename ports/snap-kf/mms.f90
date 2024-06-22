@@ -529,7 +529,10 @@ MODULE mms_module
 !_______________________________________________________________________
 
     df = one
-    WHERE( ABS( ref_flux ) < tolr )
+    
+    ! WORKAROUND: `ABS( ref_flux ) < tolr` changed to `ref_flux_abs < tolr`
+    real(r_knd), dimension(:, :, :, :) :: ref_flux_abs = ABS( ref_flux )
+    WHERE( ref_flux_abs < tolr )
       ref_flux = one
       df = zero
     END WHERE

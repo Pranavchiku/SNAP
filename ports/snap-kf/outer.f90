@@ -318,7 +318,9 @@ MODULE outer_module
       END IF
 
       df(:,:,:,n) = one
-      WHERE( ABS( flux0po(:,:,:,g) ) < tolr )
+      ! WORKAROUND: `ABS( flux0po(:,:,:,g) ) < tolr` changed to `flux0po_abs < tolr`
+      real(r_knd), dimension(:, :, :, g) :: flux0po_abs = ABS( flux0po(:,:,:,g) )
+      WHERE( flux0po_abs < tolr )
         flux0po(:,:,:,g) = one
         df(:,:,:,n) = zero
       END WHERE

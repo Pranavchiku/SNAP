@@ -338,7 +338,10 @@ MODULE outer_module
 !_______________________________________________________________________
 
     df = one
-    WHERE( ABS( flux0po ) < tolr )
+
+    ! WORKAROUND: `ABS( flux0po ) < tolr` changed to `flux0po_abs < tolr`
+    real(r_knd), dimension(nx, ny, nz) :: flux0po_abs = ABS( flux0po )
+    WHERE( flux0po_abs < tolr )
       flux0po = one
       df = zero
     END WHERE

@@ -83,6 +83,7 @@ MODULE sweep_module
     do_grp = 1
     WHERE ( inrdone ) do_grp = 0
 
+
     CALL assign_thrd_set ( do_grp, ng, ng_per_thrd, ndiag, nnstd_used, &
       grp_act )
 
